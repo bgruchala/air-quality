@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 # Assign spreadsheet filename to 'file'
 
@@ -19,3 +20,18 @@ df1 = xl.parse('Worksheet')
 print(df1.head())
 
 print(df1.info())
+
+# Converting strings to datetime objects
+
+# Using the list comprehension
+
+# df1['date'] = [pd.to_datetime(i) for i in df1['Czas mierzenia']]
+
+# Using map and lambda functions
+
+df1['date'] = df1['Czas mierzenia'].map(lambda x: pd.to_datetime(x[0:10]))
+
+# Indexing df1 with DatetimeIndex
+
+df1 = df1.set_index('date')
+
