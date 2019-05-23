@@ -42,8 +42,19 @@ df1 = df1.loc['2018-04-20':]
 
 # Plotting the "first look" chart
 
+view = df1['2018-09':'2019-03']
+
 plt.plot(df1['PM10'], color='red', label='PM10')
 plt.plot(df1['PM25'], color='blue', label='PM25')
 plt.legend(loc='best')
+plt.title("PM's 2018/04 - 2019/05")
 plt.xticks(rotation=60)
+
+plt.axes([0.18, 0.6, 0.25, 0.25])
+
+plt.plot(view['PM10'], color='red')
+plt.plot(view['PM25'], color='blue')
+plt.title(label="PM's 2018/09 - 2019/03", fontdict={'fontsize': 10})
+plt.xticks(rotation=60)
+
 plt.show()
