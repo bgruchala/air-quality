@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Assign spreadsheet filename to 'file'
 
@@ -35,3 +36,14 @@ df1['date'] = df1['Czas mierzenia'].map(lambda x: pd.to_datetime(x[0:10]))
 
 df1 = df1.set_index('date')
 
+# Removing of the first few record
+
+df1 = df1.loc['2018-04-20':]
+
+# Plotting the "first look" chart
+
+plt.plot(df1['PM10'], color='red', label='PM10')
+plt.plot(df1['PM25'], color='blue', label='PM25')
+plt.legend(loc='best')
+plt.xticks(rotation=60)
+plt.show()
